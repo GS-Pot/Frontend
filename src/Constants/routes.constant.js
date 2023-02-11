@@ -6,35 +6,40 @@ import SignupPage from "../Pages/Signup.page";
 import Razorpay from "../Pages/Razorpay.page";
 import Locationpage from "../Pages/Location.page";
 import AnouncementPage from "../Pages/Anouncement.page";
+import ForumPage from "../Pages/Forum.page";
 export const PRIVATE_ROUTES = [
-    {
-        path: "/",
-        component: <HomePage />,
-    },
+  {
+    path: "/",
+    component: <HomePage />,
+  },
 ];
 export const PUBLIC_ROUTES = [
-    {
-        path: "/",
-        component: <HomePage />,
-    },
-    {
-        path: "/anouncement",
-        component: <AnouncementPage />,
-    },
-    {
-        path: "/crop",
-        component: <Locationpage />,
-    },
-    {
-        path: "/login",
-        component: <LoginPage />,
-    },
-    {
-        path: "/signup",
-        component: <SignupPage />,
-    },
-    {
-        path: "/razorpay",
-        component: <Razorpay />,
-    },
+  {
+    path: "/",
+    component: <HomePage />,
+  },
+  {
+    path: "/forum",
+    component: <ForumPage />,
+  },
+  {
+    path: "/anouncement",
+    component: <AnouncementPage />,
+  },
+  {
+    path: "/crop",
+    component: <Locationpage />,
+  },
+  {
+    path: "/login",
+    component: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    component: <SignupPage />,
+  },
+  {
+    path: "/razorpay",
+    component: <Razorpay />,
+  },
 ];

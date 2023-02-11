@@ -5,6 +5,9 @@ import dirtyhand from "../../Assets/dirtyhand.svg";
 import gptrn from "../../Assets/greenptrnbg.svg";
 import paisa from "../../Assets/paisa.svg";
 import FYC from "../../Assets/FindYourCrop.svg";
+import ILC from "../../Assets/ILC.svg";
+import IAP from "../../Assets/IAP.svg";
+import CWU from "../../Assets/CWU.svg";
 import { Link } from "react-router-dom";
 function HomeComponent() {
   return (
@@ -35,9 +38,9 @@ function HomeComponent() {
           <div className="flex align-center justify-center">
             <div className="flex flex-row place-items-center justify-evenly h-[80vh] w-[90vw]">
               <img src={FYC} alt="" />
-              <img src={FYC} alt="" />
-              <img src={FYC} alt="" />
-              <img src={FYC} alt="" />
+              <img src={ILC} alt="" />
+              <img src={IAP} alt="" />
+              <img src={CWU} alt="" />
               <img src={FYC} alt="" />
               <img src={FYC} alt="" />
             </div>

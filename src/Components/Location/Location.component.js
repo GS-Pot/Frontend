@@ -10,6 +10,7 @@ import long from "../../Assets/long.svg";
 import city from "../../Assets/city.svg";
 import food from "../../Assets/food.svg";
 import winner from "../../Assets/winner.svg";
+import leaf from "../../Assets/phoolpatti.svg";
 const Locationcomponent = () => {
   const [location, setLocation] = useState({});
   const [cropData, setCropData] = useState([]);
@@ -64,20 +65,25 @@ const Locationcomponent = () => {
         style={{
           background: `url(${loc})`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "fill",
+          backgroundSize: "cover",
         }}
       >
-        <div className="flex flex-col pt-[14rem]">
-          <p className="font-ss text-black font-black text-[4rem] w-[80%] mx-auto">
+        <div className="flex flex-col pt-[10rem]">
+          <p className="font-ss text-black font-black text-[3rem] w-[80%] mx-auto">
             Unlock Your Farming Potential: "Identify Your Ideal Crop with Our
             Expert Assistance"
           </p>
-          <p className="font-ss text-black opacity-80 font-black text-[2rem] w-[80%] mx-auto mt-9">
+          <p className="font-ss text-black opacity-80 font-black text-[1.5rem] w-[80%] mx-auto mt-9">
             A Step-by-Step Guide to Selecting the Right Crop for Your Land and
             Climate Conditions
           </p>
           <div className="flex flex-row mx-auto w-[80%] justify-between translate-y-[25vh] font-ss">
-            <div className="w-[66%] bg-white rounded-xl h-[35vh] flex flex-row drop-shadow-xl shadow-md p-5 text-xl font-bold">
+            <div
+              className="w-[66%] bg-white rounded-xl h-[37vh] flex flex-row drop-shadow-xl shadow-md p-5 text-xl font-bold"
+              style={{
+                background: `url(${leaf}), #fff`,
+              }}
+            >
               <div className="flex flex-col basis-[50%] justify-evenly border-r-2 border-dotted">
                 <div className="flex flex-row place-items-center gap-x-4">
                   <img src={lat}></img>
@@ -109,7 +115,7 @@ const Locationcomponent = () => {
               </div>
             </div>
             <div
-              className="basis-[30%] rounded-xl h-[35vh] w-[30%] flex flex-col drop-shadow-xl shadow-md p-5"
+              className="basis-[30%] rounded-xl h-[37vh] w-[30%] flex flex-col drop-shadow-xl shadow-md p-5"
               style={{
                 background: `url(${food})`,
                 backgroundPosition: "center",
@@ -118,12 +124,12 @@ const Locationcomponent = () => {
               }}
             >
               <img src={winner} className="max-w-[50%] mx-auto -mb-5 z-[1]" />
-              <div className="bg-white w-[90%] mx-auto h-[20vh] flex flex-col gap-y-2">
+              <div className="bg-white w-[90%] mx-auto h-[22vh] flex flex-col gap-y-2">
                 <p className="text-3xl text-black font-black mt-5">
-                  {cropData?.[0].Crop}
+                  {cropData?.[0]?.Crop}
                 </p>
-                <p>Production/Area: {cropData?.[0].Calc} </p>
-                <p>Duration: {cropData?.[0].Season} </p>
+                <p>Production/Area: {cropData?.[0]?.Calc} </p>
+                <p>Duration: {cropData?.[0]?.Season} </p>
               </div>
             </div>
           </div>
