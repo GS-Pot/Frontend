@@ -6,6 +6,7 @@ import gptrn from "../../Assets/greenptrnbg.svg";
 import paisa from "../../Assets/paisa.svg";
 import FYC from "../../Assets/FindYourCrop.svg";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 function HomeComponent() {
     return (
         <div>
@@ -78,6 +79,7 @@ function HomeComponent() {
                     </button></Link>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

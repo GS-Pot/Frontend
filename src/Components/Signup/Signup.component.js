@@ -164,7 +164,7 @@ function SignupComponent() {
                   disabled={!checkPassword(password, confirmPassword)}
                   className="bg-[#57AC49] disabled:bg-red-100 hover:bg-green-700 text-white font-ss  font-bold py-2 px-4 text-[20px] rounded-xl focus:outline-none focus:shadow-outline w-full h-12"
                 >
-                  Login
+                  Signup
                 </button>
               </div>
             </div>
