@@ -5,6 +5,9 @@ import dirtyhand from "../../Assets/dirtyhand.svg";
 import gptrn from "../../Assets/greenptrnbg.svg";
 import paisa from "../../Assets/paisa.svg";
 import FYC from "../../Assets/FindYourCrop.svg";
+import ILC from "../../Assets/ILC.svg";
+import IAP from "../../Assets/IAP.svg";
+import CWU from "../../Assets/CWU.svg";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 function HomeComponent() {
@@ -36,9 +39,9 @@ function HomeComponent() {
                     <div className="flex align-center justify-center">
                         <div className="flex flex-row place-items-center justify-evenly h-[80vh] w-[90vw]">
                             <img src={FYC} alt="" />
-                            <img src={FYC} alt="" />
-                            <img src={FYC} alt="" />
-                            <img src={FYC} alt="" />
+                            <img src={ILC} alt="" />
+                            <img src={IAP} alt="" />
+                            <img src={CWU} alt="" />
                             <img src={FYC} alt="" />
                             <img src={FYC} alt="" />
                         </div>
@@ -55,9 +58,12 @@ function HomeComponent() {
                         A Step-by-Step Guide to Selecting the Right Crop for Your Land and
                         Climate Conditions
                     </p>
-                    <Link to="/crop" className="bg-[#57AC49] text-white font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]"><button >
-                        Try Now
-                    </button></Link>
+                    <Link
+                        to="/crop"
+                        className="bg-[#57AC49] text-white font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]"
+                    >
+                        <button>Try Now</button>
+                    </Link>
                 </div>
             </div>
             <div
@@ -74,9 +80,12 @@ function HomeComponent() {
                         A Comprehensive Guide to Available Support from Central and State
                         Governments
                     </p>
-                    <Link className="bg-white text-[#57AC49] font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]" to="/razorpay"><button >
-                        Inform Aid Programs
-                    </button></Link>
+                    <Link
+                        className="bg-white text-[#57AC49] font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]"
+                        to="/razorpay"
+                    >
+                        <button>Inform Aid Programs</button>
+                    </Link>
                 </div>
             </div>
             <Footer />
