@@ -7,7 +7,10 @@ import Razorpay from "../Pages/Razorpay.page";
 import Locationpage from "../Pages/Location.page";
 import AnouncementPage from "../Pages/Anouncement.page";
 export const PRIVATE_ROUTES = [
-
+    {
+        path: "/",
+        component: <HomePage />,
+    },
 ];
 export const PUBLIC_ROUTES = [
     {

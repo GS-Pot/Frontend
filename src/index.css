@@ -25,27 +25,34 @@ code {
 
 .goog-te-gadget {
   color: transparent !important;
-  height: 30px;
-  margin-top: 4px;
+  height: 40px;
+  /* margin-top: 4px; */
   overflow: hidden;
 }
 
 .goog-te-gadget .goog-te-combo {
-  color: #000 !important;
+  /* color: #000 !important; */
   border: 1px solid darkgray;
+  border-radius: 8px;
+  /* padding: 8px 4px; */
 }
 
 .goog-te-combo {
-  height: 26px;
+  /* height: 26px; */
   font-size: 15px;
   margin-top: 4px !important;
-  padding: 2px 0;
+  padding: 7px 6px;
   font-weight: 500;
   color: green !important;
   border: 1px solid green !important;
   outline: none;
 }
 
+.goog-te-combo:hover {
+  cursor: pointer;
+}
+
+/* 
 #google_element {
   position: fixed;
   z-index: 999;
@@ -54,14 +61,8 @@ code {
   height: 2vh;
   width: 2vw;
   border-radius: 50%;
-  /* display: none; */
-}
+} */
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-iframe {
-  /* z-index: -10 !important; */
-  /* position: absolute !important; */
 }

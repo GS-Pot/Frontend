@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import logo from "../../Assets/logo.svg";
 import logotext from "../../Assets/logotext.svg";
+import phool from "../../Assets/phoolpatti.svg";
+
 // import loginbg from '../../../Assets/loginbg.png'
 function Login() {
   // const navigate = useNavigate()
@@ -18,11 +20,12 @@ function Login() {
       password,
     };
     axios
-      .post(`${API_URI}/auth/login`, data)
+      .post(`${API_URI}/login`, data)
       .then((res) => {
         console.log(res.data);
         // setUser(res.data.data)
-        Cookies.set("uid", res.data.data.id);
+        console.log(res.data);
+        // Cookies.set("uid", res.data.data.id);
         toast.success(`Login Successful`);
         // navigate('/')
       })
@@ -46,7 +49,8 @@ function Login() {
               handleLogin();
             }}
             style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)",
+              // clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)",
+              background: `url(${phool}), white`,
               inset: "0 0, 100% 0, 100% 100%, 0 90% round 10px",
               borderRadius: "25px",
             }}
