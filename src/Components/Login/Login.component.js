@@ -5,6 +5,9 @@ import { useNavigate } from "react-router";
 import Cookies from 'js-cookie'
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import logo from "../../Assets/logo.svg"
+import logotext from "../../Assets/logotext.svg"
+// import loginbg from '../../../Assets/loginbg.png'
 function Login() {
     // const navigate = useNavigate()
     const [email, setEmail] = useState(null)
@@ -28,25 +31,52 @@ function Login() {
     }
     return (
         <div>
-            <div className="flex items-center justify-center h-screen">
-                <div className="w-full max-w-md">
-                    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={(e) => { e.preventDefault(); handleLogin() }}>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                                Email
-                            </label>
-                            <input onChange={(e) => setEmail(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
-                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                                Password
-                            </label>
-                            <input onChange={(e) => setPassword(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
-                            <div className="flex items-center justify-between">
-                                <button type={'submit'} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
-                                    Sign In
-                                </button>
-                                <Link to="/signup" className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+            <div className="flex items-center justify-center h-screen bg-[#6261612a] bg-login-pattern bg-no-repeat bg-cover ">
+                <div className="w-full flex justify-between pr-5 backdrop-brightness-50 h-full place-items-center px-10"
+
+                >
+                    <div className='w-full flex flex-col justify-center place-items-center'>
+                        <img src={logo} />
+                        <img src={logotext} />
+
+                    </div>
+                    <form className="bg-white min-w-[35vw] w-[35vw] h-[95vh] px-16 place-items-center rounded-3xl justify-center flex flex-col" onSubmit={(e) => { e.preventDefault(); handleLogin() }}
+                        style={{
+                            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 90%)",
+                            inset: "0 0, 100% 0, 100% 100%, 0 90% round 10px",
+                            borderRadius: "25px"
+                        }}
+                    >
+                        <div className='flex flex-col text-left gap-y-1 w-full py-4'>
+                            <div className='font-ss text-[#0E4A67] text-3xl font-black '>
+
+                                Login
+                            </div>
+                            <div className='font-ss'>
+                                <span className='text-[#37677E]'>Don't have an account?</span> <Link to="/signup" className="inline-block align-baseline font-bold text-sm text-green-700 hover:text-green-600" href="#">
                                     Sign Up
                                 </Link>
+                            </div>
+                        </div>
+                        <div className="mb-10  w-full">
+
+                            <div className="flex flex-col items-start justify-between py-4">
+                                <label className="block text-[#207198] font-ss text-[12px]  text-left" htmlFor="email">
+                                    Email
+                                </label>
+                                <input onChange={(e) => setEmail(e.target.value)} className=" border-[#207198] shadow appearance-none border rounded-xl w-full py-2 px-3 text-green-300 leading-tight focus:outline-none focus:shadow-outline h-14" id="email" type="email" placeholder="Cob@gmail.com" />
+                            </div>
+                            <div className="flex flex-col items-start justify-between py-4">
+                                <label className="block text-[#207198] text-[12px]  text-left" htmlFor="password">
+                                    Password
+                                </label>
+                                <input onChange={(e) => setPassword(e.target.value)} className="border-[#207198] shadow appearance-none border rounded-xl w-full py-2 px-3 text-green-300 leading-tight focus:outline-none focus:shadow-outline h-14" id="password" type="password" placeholder="******************" />
+                            </div>
+                            <div className="flex items-center justify-between py-16">
+                                <button type={'submit'} className="bg-[#57AC49] hover:bg-green-700 text-white font-ss  font-bold py-2 px-4 text-[20px] rounded-xl focus:outline-none focus:shadow-outline w-full h-14" >
+                                    Login
+                                </button>
+
                             </div>
                         </div>
                     </form>
