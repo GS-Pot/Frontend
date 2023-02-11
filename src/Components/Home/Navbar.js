@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../Assets/navlogo.svg";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 // import Link from 'react-router-dom'
 function Navbar() {
-  const [scroll, setScroll] = useState(false);
-  useEffect(() => {
-    document.addEventListener("scroll", () => {
-      window.scrollY > 30 ? setScroll(true) : setScroll(false);
-    });
-    // window.scrollY > 0 ? setScroll(true) : setScroll(false);
-  }, []);
-  return (
-    <div className=" fixed w-[100vw] flex align-center justify-center z-20">
-      <nav
-        className={clsx(
-          "flex items-center justify-between flex-wrap p-6  m-2 rounded-sm w-[98vw] rounded-t-xl",
-          {
-            "bg-[#57AC4990] backdrop-blur-sm": scroll,
-            "bg-transparent": !scroll,
-          }
-        )}
-      >
-        <img src={logo} alt="logo" />
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+        document.addEventListener("scroll", () => {
+            window.scrollY > 30 ? setScroll(true) : setScroll(false);
+        });
+        // window.scrollY > 0 ? setScroll(true) : setScroll(false);
+    }, []);
+    return (
+        <div className=" fixed w-[100vw] flex align-center justify-center z-20">
+            <nav
+                className={clsx(
+                    "flex items-center justify-between flex-wrap p-6  m-2 rounded-sm w-[98vw] rounded-t-xl",
+                    {
+                        "bg-[#57AC4990] backdrop-blur-sm": scroll,
+                        "bg-transparent": !scroll,
+                    }
+                )}
+            >
+                <img src={logo} alt="logo" />
 
-        <div className="flex items-center flex-shrink-0 text-white mr-6 gap-8">
-          <a href={"/"} className="font-semibold text-xl tracking-tight">
+                <div className="flex items-center flex-shrink-0 text-white mr-6 gap-8">
+                    {/* <a href={"/"} className="font-semibold text-xl tracking-tight">
             Home
           </a>
           <a href={"/"} className="font-semibold text-xl tracking-tight">
@@ -35,24 +36,25 @@ function Navbar() {
           </a>
           <a href={"/"} className="font-semibold text-xl tracking-tight">
             Home
-          </a>
+          </a> */}
+                </div>
+                <div className="flex items-between  gap-2 text-white mr-6">
+                    <div
+                        className=""
+                        id="google_element"
+                    // onClick={handleClick}
+                    ></div>
+                    <Link to="/login"><button className="inline-block text-sm px-4 py-2 leading-none  rounded text-white  hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                        Login
+                    </button>
+                    </Link>
+                    <button className="inline-block text-sm px-4 py-2 leading-none border bg-white rounded text-[#57AC49] hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                        Signup
+                    </button>
+                </div>
+            </nav>
         </div>
-        <div className="flex items-between  gap-2 text-white mr-6">
-          <div
-            className=""
-            id="google_element"
-            // onClick={handleClick}
-          ></div>
-          <button className="inline-block text-sm px-4 py-2 leading-none  rounded text-white  hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-            Login
-          </button>
-          <button className="inline-block text-sm px-4 py-2 leading-none border bg-white rounded text-[#57AC49] hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-            Signup
-          </button>
-        </div>
-      </nav>
-    </div>
-  );
+    );
 }
 
 export default Navbar;

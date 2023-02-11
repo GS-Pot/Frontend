@@ -57,10 +57,12 @@ function HomeComponent() {
             A Step-by-Step Guide to Selecting the Right Crop for Your Land and
             Climate Conditions
           </p>
-
-          <button className="bg-[#57AC49] text-white font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-[#57AC4970] transition-all hover:text-[#57AC49]">
-            Try Now
-          </button>
+          <Link
+            to="/crop"
+            className="bg-[#57AC49] text-white font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]"
+          >
+            <button>Try Now</button>
+          </Link>
         </div>
       </div>
       <div
@@ -77,9 +79,12 @@ function HomeComponent() {
             A Comprehensive Guide to Available Support from Central and State
             Governments
           </p>
-          <button className="bg-white text-[#57AC49] font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]">
-            Inform Aid Programs
-          </button>
+          <Link
+            className="bg-white text-[#57AC49] font-bold font-ss py-2 px-4 rounded-xl w-[16vw] h-[7vh] hover:bg-white hover:text-[#57AC49]"
+            to="/razorpay"
+          >
+            <button>Inform Aid Programs</button>
+          </Link>
         </div>
       </div>
     </div>
