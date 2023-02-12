@@ -2,6 +2,7 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import Navigate from "./Navigation";
+import Voice from "./Components/Voice/Voice.component";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [onBoarding, setIsOnBoarding] = useState(true);
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <div className="absolute right-5 top-0"></div>
+
       <Navigate isLoggedIn={isLoggedIn} onBoarding={onBoarding} />
     </div>
   );

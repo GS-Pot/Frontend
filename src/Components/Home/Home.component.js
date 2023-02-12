@@ -10,6 +10,7 @@ import IAP from "../../Assets/IAP.svg";
 import CWU from "../../Assets/CWU.svg";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import Voice from "../Voice/Voice.component";
 function HomeComponent() {
     return (
         <div>
@@ -88,6 +89,7 @@ function HomeComponent() {
                     </Link>
                 </div>
             </div>
+            <Voice />
             <Footer />
         </div>
     );
