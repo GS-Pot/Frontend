@@ -1,11 +1,29 @@
 import React from "react";
 import Navbar from "../Home/Navbar";
 import leaf from "../../Assets/phoolpatti.svg";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { API_URI } from "../../Constants/apiUrl";
 const NewComponent = () => {
-  const user = {
-    name: "Rahul",
-    email: "rahul@admin.com",
-    role: "admin",
+  // const user = {
+  //   name: "Rahul",
+  //   email: "rahul@admin.com",
+  //   role: "admin",
+  // };
+  // const user = Cookies.get("uid");
+  const [title, setTitle] = React.useState("");
+  const [body, setBody] = React.useState("");
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  const handleSubmit = () => {
+    const data = {
+      title,
+      body,
+      userId: user.email,
+      role: user.role,
+    };
+    axios.post(API_URI + "/forum", data);
+    console.log(data);
   };
   return (
     <div>
@@ -28,8 +46,21 @@ const NewComponent = () => {
         <div className="text-ss my-10 text-4xl font-bold">
           Create Thread Page
         </div>
-        <input type="text" placeholder="Title" className="p-2 w-[80%]" />
-        <textarea placeholder="Description" className="p-2 w-[80%] h-[20vh]" />
+        <input
+          type="text"
+          placeholder="Title"
+          className="p-2 w-[80%]"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <textarea
+          placeholder="Description"
+          className="p-2 w-[80%] h-[20vh]"
+          onChange={(e) => {
+            setBody(e.target.value);
+          }}
+        />
         <input
           type="text"
           placeholder="Title"
@@ -52,7 +83,10 @@ const NewComponent = () => {
             before creating a new thread.
           </i>
         </div>
-        <button className="text-white hover:text-green-400 bg-green-400 hover:bg-white transition-all px-4 py-2 rounded-lg">
+        <button
+          className="text-white hover:text-green-400 bg-green-400 hover:bg-white transition-all px-4 py-2 rounded-lg"
+          onClick={handleSubmit}
+        >
           Create Thread
         </button>
       </div>

@@ -26,6 +26,7 @@ function Login() {
         // setUser(res.data.data)
         console.log(res.data);
         Cookies.set("uid", res.data.data);
+        localStorage.setItem("user", JSON.stringify(res.data.data));
         console.log(Cookies);
         toast.success(`Login Successful`);
         navigate("/");

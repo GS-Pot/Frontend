@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Home/Navbar";
 import rply from "../../Assets/rply.svg";
 import axios from "axios";
 import { API_URI } from "../../Constants/apiUrl";
 import { Link } from "react-router-dom";
-
+import leaf from "../../Assets/phoolpatti.svg";
 function Forumcomponent() {
   const [search, setSearch] = React.useState("");
+  const [forumData, setForumData] = React.useState([]);
   const handleSearch = () => {
     console.log(search);
     axios.post(API_URI + "/forum/search/", { context: search }).then((res) => {
@@ -14,6 +15,12 @@ function Forumcomponent() {
     });
   };
 
+  useEffect(() => {
+    axios.get(API_URI + "/forum").then((res) => {
+      setForumData(res.data);
+      console.log(res.data);
+    });
+  }, []);
   const posts = [
     {
       title: "WINTER IS SHOW SEASON: Farm shows, conferences are back",
@@ -41,7 +48,12 @@ function Forumcomponent() {
     <div>
       <Navbar />
 
-      <div className="bg-[#57AC49] h-[60vh] w-[98vw] mx-auto flex flex-col justify-center align-center m-2 rounded-xl gap-y-3 place-items-center">
+      <div
+        className=" h-[60vh] w-[98vw] mx-auto flex flex-col justify-center align-center m-2 rounded-xl gap-y-3 place-items-center"
+        style={{
+          background: `url(${leaf}), #57AC49`,
+        }}
+      >
         <h1 className="text-4xl font-bold font-ss text-white justify-start">
           GrowIndia Forum
         </h1>
@@ -64,9 +76,11 @@ function Forumcomponent() {
       </div>
       <div className="bg-white h-[100vh] w-[100vw] flex flex-row justify-center align-center">
         <div className="h-[100vh] w-[30vw] flex flex-col justify-center align-center">
-          <h1 className="text-2xl cursor-pointer font-ss text-white bg-[#57AC49] justify-start rounded-xl mx-5 p-2">
-            New Thread
-          </h1>
+          <Link to="/forum/new">
+            <h1 className="text-2xl cursor-pointer font-ss text-white bg-[#57AC49] justify-start rounded-xl mx-5 p-2">
+              New Thread
+            </h1>
+          </Link>
           <div className="h-[80vh] w-[30vw] flex flex-col justify-center align-center border-black-1 border-b-2">
             <h3 className="text-2xl font-bold font-ss text-[#57AC49] justify-start">
               Discussion Filter
@@ -87,32 +101,33 @@ function Forumcomponent() {
           </div>
         </div>
         <div className="w-[70vw] flex flex-col mt-10 gap-y-10">
-          {posts?.map((post) => {
-            return (
-              <div classname="flex flex-col justify-start align-start px-10 gap-y-4">
-                <h1 className="text-3xl font-bold font-ss text-black justify-start py-2 text-left">
-                  {post.title}
-                </h1>
-                <p className="text-lg font-[400] font-ss text-black justify-start py-2 pr-10 text-justify mr-5">
-                  {post.body.length > 500
-                    ? post.body.substring(0, 500) + "..."
-                    : post.body}
-                </p>
-                <div className="flex flex-row justify-between">
-                  <img
-                    src={rply}
-                    alt="reply"
-                    classname="py-6 hover:cursor-pointer float-left"
-                  />
-                  <Link to="/forum/1">
-                    <div className="cursor-pointer mr-16 hover:text-green-700 transition-all">
-                      Read More
-                    </div>
-                  </Link>
+          {forumData &&
+            forumData?.posts?.map((post) => {
+              return (
+                <div classname="flex flex-col justify-start align-start px-10 gap-y-4">
+                  <h1 className="text-3xl font-bold font-ss text-black justify-start py-2 text-left">
+                    {post.title}
+                  </h1>
+                  <p className="text-lg font-[400] font-ss text-black justify-start py-2 pr-10 text-justify mr-5">
+                    {post.body.length > 500
+                      ? post.body.substring(0, 500) + "..."
+                      : post.body}
+                  </p>
+                  <div className="flex flex-row justify-between">
+                    <img
+                      src={rply}
+                      alt="reply"
+                      classname="py-6 hover:cursor-pointer float-left"
+                    />
+                    <Link to={`/forum/${post.id}`}>
+                      <div className="cursor-pointer mr-16 hover:text-green-700 transition-all">
+                        Read More
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
           {/* <div classname="flex flex-col justify-start align-start px-10">
             <h1 className="text-3xl font-bold font-ss text-black justify-start py-2 text-left">
               WINTER IS SHOW SEASON: Farm shows, conferences are back
