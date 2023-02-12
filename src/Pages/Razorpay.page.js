@@ -20,6 +20,7 @@ function loadScript(src) {
 export default function Payment({}) {
   //   const user = useSelector((state) => state.user.user);
   const [money, setMoney] = React.useState(0);
+  const [fEmail, setFEmail] = React.useState("");
   async function handlePaymentAndRegister(response) {
     // const order_check = (
     //   await axios.post(API_URI + "/payment/verify", response)
@@ -62,6 +63,7 @@ export default function Payment({}) {
 
     const order = (
       await axios.post(`${API_URI}/payment/createOrder`, {
+        userId: fEmail,
         // event_id: event.id,
         // event_category: event.category,
         amount: money * 100,
@@ -90,6 +92,14 @@ export default function Payment({}) {
 
   return (
     <>
+      <input
+        type="number"
+        placeholder="Enter the receipient email"
+        value={fEmail ? fEmail : ""}
+        onChange={(e) => {
+          setFEmail(e.target.value);
+        }}
+      />
       <input
         type="number"
         placeholder="Enter the amount"
