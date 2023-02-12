@@ -52,32 +52,4 @@ export const PUBLIC_ROUTES = [
     path: "/razorpay",
     component: <Razorpay />,
   },
-  {
-    path: "/",
-    component: <HomePage />,
-  },
-  {
-    path: "/forum",
-    component: <ForumPage />,
-  },
-  {
-    path: "/anouncement",
-    component: <AnouncementPage />,
-  },
-  {
-    path: "/crop",
-    component: <Locationpage />,
-  },
-  {
-    path: "/login",
-    component: <LoginPage />,
-  },
-  {
-    path: "/signup",
-    component: <SignupPage />,
-  },
-  {
-    path: "/razorpay",
-    component: <Razorpay />,
-  },
 ];
