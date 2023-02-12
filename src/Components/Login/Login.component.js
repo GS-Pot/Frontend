@@ -11,7 +11,7 @@ import phool from "../../Assets/phoolpatti.svg";
 
 // import loginbg from '../../../Assets/loginbg.png'
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const handleLogin = () => {
@@ -25,10 +25,10 @@ function Login() {
         console.log(res.data);
         // setUser(res.data.data)
         console.log(res.data);
-        Cookies.set("uid", res.data.data.id);
-        console.log(Cookies.get("uid"))
+        Cookies.set("uid", res.data.data);
+        console.log(Cookies);
         toast.success(`Login Successful`);
-        navigate('/')
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

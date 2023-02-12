@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Home/Navbar";
 import leaf from "../../Assets/phoolpatti.svg";
+import Moment from "react-moment";
 const Single = ({ data }) => {
   const a = {
     title: "WINTER IS SHOW SEASON: Farm shows, conferences are back",
@@ -24,6 +25,15 @@ const Single = ({ data }) => {
           Discussion
         </div>
         <div className="font-bold text-3xl w-[80%] mx-auto">{a.title}</div>
+        {/* <div> */}
+        <div className="mt-10 flex flex-row justify-between text-justify w-[80%] mx-auto">
+          {a.body}
+        </div>
+        <div className="float-left mt-3 w-[80%] mx-auto text-left text-[#00000150]">
+          <Moment fromNow>{a.created}</Moment>
+        </div>
+        <hr className="w-[80%] mx-auto mt-10" />
+        {/* </div> */}
       </div>
     </div>
   );
